@@ -108,3 +108,24 @@ function order(words){
               .sort((a, b) => extractNumber(a) - extractNumber(b))
   						.join(' ')
 }
+
+function twoSum(numbers, target) {
+	for (let i = 0; i < numbers.length; i++) {
+    const test = target - i
+    const arr = numbers.filter((elem, index) => {
+      if (index !== i && ) {
+        return elem
+      }
+    })
+    for (let num of arr) {
+      if (num === test) {
+        console.log(`${target} = ${i} + ${test}`)
+      }
+        
+    }
+    
+  }
+}
+
+
+twoSum([1234,5678,9012], 14690)
