@@ -148,3 +148,52 @@ function twoSum(numbers, target) {
     }
   }
 }
+
+// 7kyu Square Every Digit
+// Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+// For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+// Note: The function accepts an integer and returns an integer
+
+function squareDigits(num){
+  return parseInt(num.toString()
+            .split('')
+            .map(elem => elem**2)
+            .join('')) 
+}
+
+// 8 kyu All Star Code Challenge #18
+// This Kata is intended as a small challenge for my students
+
+// All Star Code Challenge #18
+
+// Create a function that accepts 2 string arguments and returns an integer of the count of occurrences the 2nd argument is found in the first one.
+
+// If no occurrences can be found, a count of 0 should be returned.
+
+// ("Hello", "o")  ==>  1
+// ("Hello", "l")  ==>  2
+// ("", "z")       ==>  0
+
+// Notes:
+
+//     The first argument can be an empty string
+//     The second string argument will always be of length 1
+
+function strCount(str, letter){  
+  return str.split(letter).length - 1
+}
+
+// 7kyu Double Sort
+// Simple enough this one - you will be given an array. The values in the array will either be numbers or strings, or a mix of both. You will not get an empty array, nor a sparse one.
+
+// Your job is to return a single array that has first the numbers sorted in ascending order, followed by the strings sorted in alphabetic order. The values must maintain their original type.
+
+// Note that numbers written as strings are strings and must be sorted with the other strings.
+
+function dbSort(a){
+  const num = a.filter(elem => typeof elem === 'number').sort((a,b) => a - b)
+  const str = a.filter(elem => typeof elem === 'string').sort()
+  return num.concat(str)
+}
