@@ -278,6 +278,17 @@ function highAndLow(numbers) {
 }
 
 
+// 7 kyu Sum of two lowest positive integers
+// Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+
+// For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+
+// [10, 343445353, 3453445, 3453545353453] should return 3453455.
+
+function sumTwoSmallestNumbers(numbers) {
+  numbers.sort((a, b) => a - b)
+  return numbers[0] + numbers[1]
+
 // 8 kyu Find Maximum and Minimum Values of a List
 // Your task is to make two functions (max and min, or maximum and minimum, etc., depending on the language) that receive a list of integers as input and return, respectively, the largest and lowest number in that list.
 // Examples (Input -> Output)
