@@ -55,15 +55,22 @@ PaginationHelper.prototype.pageCount = function() {
 // returns the number of items on the current page. page_index is zero based.
 // this method should return -1 for pageIndex values that are out of range
 PaginationHelper.prototype.pageItemCount = function(pageIndex) {
+  const arrOfObj = this.collection.map((e, i) => {
+    const obj = {}
+    obj[i] = e
+    return obj
+  })
   const numGroups = Math.ceil(this.collection.length / this.itemsPerPage)
-  const pagedGroups = new Array(numGroups)
+  this.pagedGroups = new Array(numGroups)
     .fill('')
-    .map((_, i) => this.collection.slice(i * this.itemsPerPage, (i + 1) * this.itemsPerPage))
-  return pageIndex < Math.ceil(this.collection.length / this.itemsPerPage) ? pagedGroups[pageIndex].length : -1
+    .map((_, i) => arrOfObj.slice(i * this.itemsPerPage, (i + 1) * this.itemsPerPage))
+  return pageIndex < Math.ceil(this.collection.length / this.itemsPerPage) ? this.pagedGroups[pageIndex].length : -1
 }
 
 // determines what page an item is on. Zero based indexes
 // this method should return -1 for itemIndex values that are out of range
 PaginationHelper.prototype.pageIndex = function(itemIndex) {
-  return ((itemIndex < this.collection.length) || (itemIndex < 0) ? -1 : Math.ceil(itemIndex / this.itemsPerPage) - 1
+  this.pagedGroups.forEach((outer, index) => 
+             outer.forEach(inner => itemIndex in inner ? index : -1
+             ))
 }  
