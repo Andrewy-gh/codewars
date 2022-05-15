@@ -6,9 +6,11 @@
 
 function reverseWords(str) {
   // Go for it
-  return str.split(' ').map(element => element.split('').reverse().join('')).join(' ')
+  return str
+    .split(' ')
+    .map((element) => element.split('').reverse().join(''))
+    .join(' ');
 }
-
 
 // The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
 // Examples
@@ -16,18 +18,22 @@ function reverseWords(str) {
 // "din"      =>  "((("
 // "recede"   =>  "()()()"
 // "Success"  =>  ")())())"
-// "(( @"     =>  "))((" 
+// "(( @"     =>  "))(("
 
 // Notes
 
 // Assertion messages may be unclear about what they display in some languages. If you read "...It Should encode XXX", the "XXX" is the expected result, not the input!
 
-function duplicateEncode(word){
-    // ...
-  word = word.toLowerCase()
-  return word.split('').map(element => word.indexOf(element) === word.lastIndexOf(element) ? '(' : ')').join('')
+function duplicateEncode(word) {
+  // ...
+  word = word.toLowerCase();
+  return word
+    .split('')
+    .map((element) =>
+      word.indexOf(element) === word.lastIndexOf(element) ? '(' : ')'
+    )
+    .join('');
 }
-
 
 // Trolls are attacking your comment section!
 
@@ -40,9 +46,10 @@ function duplicateEncode(word){
 // Note: for this kata y isn't considered a vowel.
 
 function disemvowel(str) {
-  return str.split('')
-            .filter(element => !'aeiou'.includes(element.toLowerCase()))
-            .join('');
+  return str
+    .split('')
+    .filter((element) => !'aeiou'.includes(element.toLowerCase()))
+    .join('');
 }
 
 // 8 kyu - Count by X
@@ -60,7 +67,7 @@ function disemvowel(str) {
 function countBy(x, n) {
   let z = [];
   for (let i = 1; i <= n; i++) {
-    z.push(x * i)
+    z.push(x * i);
   }
   return z;
 }
@@ -85,7 +92,7 @@ function countBy(x, n) {
 
 function enough(cap, on, wait) {
   // your code here
-  return (on + wait <= cap) ? 0 : (on + wait) - cap
+  return on + wait <= cap ? 0 : on + wait - cap;
 }
 
 // 6 kyu Your order, please
@@ -101,12 +108,14 @@ function enough(cap, on, wait) {
 // "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
 // ""  -->  ""
 
-function order(words){
+function order(words) {
   // ...
-  const extractNumber = (num) => num.split('').filter(letter => !isNaN(parseInt(letter)))
-  return words.split(' ')
-              .sort((a, b) => extractNumber(a) - extractNumber(b))
-  						.join(' ')
+  const extractNumber = (num) =>
+    num.split('').filter((letter) => !isNaN(parseInt(letter)));
+  return words
+    .split(' ')
+    .sort((a, b) => extractNumber(a) - extractNumber(b))
+    .join(' ');
 }
 
 // 8 kyu Sum of positive
@@ -117,8 +126,7 @@ function order(words){
 // Note: if there is nothing to sum, the sum is default to 0.
 
 function positiveSum(arr) {
-  return arr.filter(e => e > 0)
-            .reduce((p, c) => p + c, 0)
+  return arr.filter((e) => e > 0).reduce((p, c) => p + c, 0);
 }
 
 // 6kyu Two Sum
@@ -133,17 +141,19 @@ function positiveSum(arr) {
 // twoSum [1, 2, 3] 4 === (0, 2)
 
 function twoSum(numbers, target) {
-	for (let i = 0; i < numbers.length; i++) {
-    const test = target - numbers[i]
-    console.log(test)
+  for (let i = 0; i < numbers.length; i++) {
+    const test = target - numbers[i];
+    console.log(test);
     const arr = numbers.filter((elem, index) => {
       if (index !== i) {
-        return elem
+        return elem;
       }
-    })
+    });
     for (let num of arr) {
       if (num === test) {
-        return i === numbers.indexOf(num) ? [parseInt(`${i}`), parseInt(`${numbers.lastIndexOf(num)}`)] : [parseInt(`${i}`), parseInt(`${numbers.indexOf(num)}`)] 
+        return i === numbers.indexOf(num)
+          ? [parseInt(`${i}`), parseInt(`${numbers.lastIndexOf(num)}`)]
+          : [parseInt(`${i}`), parseInt(`${numbers.indexOf(num)}`)];
       }
     }
   }
@@ -156,11 +166,14 @@ function twoSum(numbers, target) {
 
 // Note: The function accepts an integer and returns an integer
 
-function squareDigits(num){
-  return parseInt(num.toString()
-            .split('')
-            .map(elem => elem**2)
-            .join('')) 
+function squareDigits(num) {
+  return parseInt(
+    num
+      .toString()
+      .split('')
+      .map((elem) => elem ** 2)
+      .join('')
+  );
 }
 
 // 8 kyu All Star Code Challenge #18
@@ -181,8 +194,8 @@ function squareDigits(num){
 //     The first argument can be an empty string
 //     The second string argument will always be of length 1
 
-function strCount(str, letter){  
-  return str.split(letter).length - 1
+function strCount(str, letter) {
+  return str.split(letter).length - 1;
 }
 
 // 7kyu Double Sort
@@ -192,10 +205,12 @@ function strCount(str, letter){
 
 // Note that numbers written as strings are strings and must be sorted with the other strings.
 
-function dbSort(a){
-  const num = a.filter(elem => typeof elem === 'number').sort((a,b) => a - b)
-  const str = a.filter(elem => typeof elem === 'string').sort()
-  return num.concat(str)
+function dbSort(a) {
+  const num = a
+    .filter((elem) => typeof elem === 'number')
+    .sort((a, b) => a - b);
+  const str = a.filter((elem) => typeof elem === 'string').sort();
+  return num.concat(str);
 }
 
 // 6kyu Pyramid Array
@@ -209,13 +224,13 @@ function dbSort(a){
 // Note: the subarrays should be filled with 1s
 
 function pyramid(num) {
-  let main = []
-  let sub = []
+  let main = [];
+  let sub = [];
   for (let i = 1; num > 0 && i <= num; i++) {
-    sub.push(1)
-    main.push(sub.slice())
+    sub.push(1);
+    main.push(sub.slice());
   }
-  return main
+  return main;
 }
 
 // 6kyu Array.diff
@@ -230,9 +245,8 @@ function pyramid(num) {
 // arrayDiff([1,2,2,2,3],[2]) == [1,3]
 
 function arrayDiff(a, b) {
-  return a.filter(element => !b.includes(element))
-  }
-
+  return a.filter((element) => !b.includes(element));
+}
 
 // 7 kyu Find the middle element
 // As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
@@ -251,14 +265,13 @@ function arrayDiff(a, b) {
 
 // 10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.
 
-
-function gimme (triplet) {
-  let copy = triplet.slice()
-  copy.sort((a, b) => a - b)
-  return triplet.indexOf(copy[1])
+function gimme(triplet) {
+  let copy = triplet.slice();
+  copy.sort((a, b) => a - b);
+  return triplet.indexOf(copy[1]);
 }
 
-// 7kyu Highest and Lowest 
+// 7kyu Highest and Lowest
 // In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
 // Examples
 
@@ -273,10 +286,9 @@ function gimme (triplet) {
 //     Output string must be two numbers separated by a single space, and highest number is first.
 
 function highAndLow(numbers) {
-  const sorted = numbers.split(' ').sort((a, b) => b - a)
-  return `${sorted[0]} ${sorted.slice(-1)[0]}`
+  const sorted = numbers.split(' ').sort((a, b) => b - a);
+  return `${sorted[0]} ${sorted.slice(-1)[0]}`;
 }
-
 
 // 7 kyu Sum of two lowest positive integers
 // Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
@@ -286,8 +298,8 @@ function highAndLow(numbers) {
 // [10, 343445353, 3453445, 3453545353453] should return 3453455.
 
 function sumTwoSmallestNumbers(numbers) {
-  numbers.sort((a, b) => a - b)
-  return numbers[0] + numbers[1]
+  numbers.sort((a, b) => a - b);
+  return numbers[0] + numbers[1];
 }
 
 // 8 kyu Find Maximum and Minimum Values of a List
@@ -303,15 +315,15 @@ function sumTwoSmallestNumbers(numbers) {
 
 //     You may consider that there will not be any empty arrays/vectors.
 
-var min = function(list){
-  list.sort((a, b) => a - b)
+var min = function (list) {
+  list.sort((a, b) => a - b);
   return list[0];
-}
+};
 
-var max = function(list){
-  list.sort((a, b) => b - a)
+var max = function (list) {
+  list.sort((a, b) => b - a);
   return list[0];
-}
+};
 
 // 7 kyu Number to digit tiers
 // Create a function that takes a number and returns an array of strings containing the number cut off at each digit.
@@ -326,10 +338,9 @@ var max = function(list){
 // PS: The input is guaranteed to be an integer in the range [0, 1000000]
 
 function createArrayOfTiers(num) {
-    return String(num)
-      .split('')
-      .map((e, i) => 
-           String(num).substring(0, i + 1));
+  return String(num)
+    .split('')
+    .map((e, i) => String(num).substring(0, i + 1));
 }
 
 // 7 kyu Mumbling
@@ -344,11 +355,32 @@ function createArrayOfTiers(num) {
 // The parameter of accum is a string which includes only letters from a..z and A..Z.
 
 function accum(s) {
-  let arr = s.split('')
+  let arr = s.split('');
   for (const [key, value] of Object.entries(arr)) {
     for (let i = 0; i < key; i++) {
-      arr[key] += value.toLowerCase()
+      arr[key] += value.toLowerCase();
     }
   }
-  return arr.map(elem => elem[0].toUpperCase() + elem.substring(1)).join('-')
+  return arr.map((elem) => elem[0].toUpperCase() + elem.substring(1)).join('-');
+}
+
+// 8 kyu Grasshopper - Messi goals function
+
+// Messi is a soccer player with goals in three leagues:
+
+//     LaLiga
+//     Copa del Rey
+//     Champions
+
+// Complete the function to return his total number of goals in all three leagues.
+
+// Note: the input will always be valid.
+
+// For example:
+
+// 5, 10, 2  -->  17
+
+function goals(laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+  // code goes here
+  return laLigaGoals + copaDelReyGoals + championsLeagueGoals;
 }
