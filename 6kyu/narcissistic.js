@@ -16,12 +16,9 @@
 // Error checking for text strings or other invalid inputs is not required, only valid positive non-zero integers will be passed into the function.
 
 function narcissistic(value) {
-  // Code me to return true or false
   const pow = String(value).length
   const arr = String(value).split('').map(e => Number(e))
-  
   const result = arr.map(e => e**pow).reduce((acc, a) => acc + a)
-  // console.log(arr, pow, result)
   return result === value
 }
 
