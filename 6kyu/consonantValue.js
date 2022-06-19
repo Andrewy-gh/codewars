@@ -28,7 +28,7 @@ function solve(s) {
     .map((e) => (vowels.includes(e) ? ' ' : e))
     .join('')
     .split(' ')
-    .filter((e) => e !== '')
+    .filter((e) => e !== ' ')
     .map((e) =>
       e
         .split('')
