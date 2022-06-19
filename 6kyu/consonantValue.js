@@ -25,9 +25,9 @@ function solve(s) {
   const vowels = 'aeiou';
   const result = s
     .split('')
-    .map((e) => (vowels.includes(e) ? ',' : e))
+    .map((e) => (vowels.includes(e) ? ' ' : e))
     .join('')
-    .split(',')
+    .split(' ')
     .filter((e) => e !== '')
     .map((e) =>
       e
