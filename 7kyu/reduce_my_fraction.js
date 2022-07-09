@@ -9,6 +9,8 @@
 
 // Note: This is an introductory Kata for a series... coming soon!
 
+// ! Euclids's Algorithm Calculator function
+// ! https://www.calculatorsoup.com/calculators/math/gcf-euclids-algorithm.php
 function getGcf(a, b) {
   var r = a % b;
   while (r !== 0) {
