@@ -2,7 +2,7 @@
 
 // Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.
 
-  function reverse(str) {
+function reverse(str) {
   const reverseStr = (str) => str.split('').reverse().join('')
   return str.trim().length ? str.split(' ').map((e,i) => i % 2 === 1 ? reverseStr(e) : e).join(' ') : ''
 }
