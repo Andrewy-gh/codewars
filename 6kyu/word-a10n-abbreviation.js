@@ -1,12 +1,4 @@
 // 6 kyu Word a10n (abbreviation)
-// 87914390% of 1,3053,908 of 10,123wthit569 Issues Reported
-
-//     JavaScript
-//     Node v10.x
-
-//         VIM
-//         EMACS
-
 // Instructions
 // Output
 // Past Solutions
