@@ -1,6 +1,5 @@
 
-// 7 kyu
-// Which color is the brightest
+// 7 kyu Which color is the brightest
 
 // One of the common ways of representing color is the RGB color model, in which the Red, Green, and Blue primary colors of light are added together in various ways to reproduce a broad array of colors.
 
