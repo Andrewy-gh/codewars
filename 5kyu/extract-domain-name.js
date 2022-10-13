@@ -12,7 +12,7 @@ function domainName(url) {
     .replace('https://', '')
     .replace('http://', '')
     .replace('www.', '')
-    .split('.com')[0];
+    .split('.')[0];
 }
 
 console.log(domainName('http://github.com/carbonfive/raygun')); //"github"
